@@ -4,7 +4,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import { connectDB } from './src/config/db.js';
-import { errorHandler, notFound } from './src/middleware/errorMiddleware.js';
+import { errorHandler, notFound } from './src/middleware/errorMiddlware.js';
 
 import authRoutes from './src/routes/authRoutes.js';
 
@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use('/api/auth', authRoutes);
 
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'FitForge API is running 🏋️' });
+  res.json({ status: 'FitForge API is running' });
 });
 
 app.use(notFound);

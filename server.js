@@ -9,6 +9,7 @@ import { errorHandler, notFound } from './src/middleware/errorMiddlware.js';
 import authRoutes from './src/routes/authRoutes.js';
 import productRoutes from './src/routes/productRoutes.js';
 import cartRoutes from './src/routes/cartRoutes.js';
+import orderRoutes from './src/routes/orderRoutes.js'
 
 dotenv.config();
 connectDB()
@@ -24,6 +25,7 @@ app.use(cookieParser());
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/cart', cartRoutes);
+app.use('/api/order', orderRoutes)
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'FitForge API is running' });

@@ -6,6 +6,8 @@ import dotenv from 'dotenv';
 import { connectDB } from './src/config/db.js';
 import { errorHandler, notFound } from './src/middleware/errorMiddlware.js';
 
+import adminRoutes from './src/routes/adminRoutes.js';
+
 import authRoutes from './src/routes/authRoutes.js';
 import productRoutes from './src/routes/productRoutes.js';
 import cartRoutes from './src/routes/cartRoutes.js';
@@ -22,10 +24,12 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
+app.use('/api/admin', adminRoutes);
+
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/cart', cartRoutes);
-app.use('/api/orders', orderRoutes)
+app.use('/api/orders', orderRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'FitForge API is running' });
